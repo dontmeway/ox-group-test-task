@@ -6,7 +6,7 @@ import { getToken } from '../API/Auth'
 
 
 export const LogIn = ({error, size, page}) => {
-    const [user, setUser] = React.useState({domain: 'face', userName: 'fortest', password: 'fortest1'})
+    const [user, setUser] = React.useState({userName: '', password: ''})
     const dispatch = useDispatch()
 
     const handleSubmit = (e) => {
@@ -28,11 +28,6 @@ export const LogIn = ({error, size, page}) => {
     return (
         <div className = "loginWrapper">
                 <form onSubmit = {handleSubmit} className = "login">
-                    <input
-                        onChange = {(e) => setUser(prev => ({...prev, domain: e.target.value}))} 
-                        value = {user.domain} 
-                        placeholder = "Subdomain" 
-                        required/>
                     <input  
                         onChange = {(e) => setUser(prev => ({...prev, userName: e.target.value}))} 
                         value = {user.userName} 

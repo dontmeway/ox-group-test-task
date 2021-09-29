@@ -3,18 +3,18 @@ import axios from "axios"
 
 export const getToken = createAsyncThunk(
     'goods/getToken',
-    async({domain, userName, password, dispatch, page, size}, { rejectWithValue }) => {
+    async({userName, password, dispatch, page, size}, { rejectWithValue }) => {
         try {
             const response = await axios.request({
-                url: `https://${domain}.ox-sys.com/security/auth_check`,
+                url: `https://face.ox-sys.com/security/auth_check`,
                 method: "POST",
-                data: `_username=${userName}&_password=${password}&_subdomain=${domain}`,
+                data: `_username=${userName}&_password=${password}&_subdomain=face`,
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
             })
             if (response.status !== 200) {
-                dispatch(getToken({domain, userName, password, dispatch, page, size}))
+                dispatch(getToken({userName, password, dispatch, page, size}))
             }
             dispatch(getGoods({token: response.data.token, page, size}))
             sessionStorage.setItem("token", response.data.token)
