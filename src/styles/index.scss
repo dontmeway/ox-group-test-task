@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.loginWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .login {
+        padding: 30px 15px;
+        border-radius: 10px; 
+        background-color: #4FC1E9;
+        display: flex;
+        flex-direction: column;
+        min-width: 320px;
+        align-items: center;
+        min-height: 300px;
+        input {
+            outline: 0;
+            border: 0;
+            background: white;
+            margin-bottom: 15px;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #FFFFFF;
+            transition: 200ms all;
+            &:focus {
+                border-color: #4A89DC;
+            }
+            &::placeholder {
+                font-size: 16px;
+                
+            }
+        }
+        button {
+            border: 0;
+            outline: 0;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 200ms all;
+            &:hover {
+                opacity: 0.9;
+            }
+        }
+    }
+}
+
+.pages {
+    display: flex;
+    div {
+        padding: 10px;
+        border: 1px solid black;
+        cursor: pointer !important; 
+        z-index: 10;
+    }
+}
+
+.container {
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    padding: 20px 0 40px 0;
+}
+
+.header {
+    padding: 15px 30px;
+    background: #4A89DC;
+    display: flex;
+    align-items:center;
+    margin-bottom: 15px;
+    justify-content: space-between;
+    .header__logo {
+        display: flex;
+        align-items: center;
+        a {
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            margin-right: 20px; 
+            &::hover {
+                opacity: 0.9
+            }
+        }
+    }
+    .header__query {
+        display: flex;
+        align-items: center;
+        @media (max-width: 350px) { 
+            flex-direction: column-reverse;
+            div {
+                margin: 10px 0 0 0;
+            }
+        }
+        input {
+            margin-right: 10px;
+            @media (max-width: 650px) { 
+                display: none;
+            }
+        }
+        div {
+            margin-right: 10px;
+        }
+    }
+}
